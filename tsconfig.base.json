@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+
+    "paths": {
+      "@billing/shared": ["packages/shared/src"],
+
+      "@billing/shared/*": ["packages/shared/src/*"]
+    }
+  }
+}
