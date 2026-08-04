@@ -2,6 +2,9 @@
   "extends": "../../packages/tsconfig/vue.json",
 
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }
