@@ -1,8 +1,7 @@
 <template>
-  <main class="login-page">
-    <div class="overlay">
-      <LoginForm />
-    </div>
+  <main class="login-page" :style="{ backgroundImage: `url(${bg})` }">
+    <div class="overlay" />
+    <LoginForm class="content" />
   </main>
 </template>
 
@@ -14,20 +13,21 @@ import bg from '@/assets/login-bg.jpg';
 <style scoped>
 .login-page {
   position: relative;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: v-bind('`url(${bg})`');
+  padding: 48px 20px;
+  box-sizing: border-box;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 15, 25, 0.7);
+  background: linear-gradient(180deg, rgba(8, 11, 18, 0.55) 0%, rgba(8, 11, 18, 0.85) 100%);
 }
-.login-page > *:last-child {
+.content {
   position: relative;
   z-index: 2;
 }
