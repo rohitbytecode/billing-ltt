@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.turbo/
+.vscode/
+.idea/
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+
+# TypeScript compiled output
+*.js.map
+*.d.ts.map
+*.tsbuildinfo
