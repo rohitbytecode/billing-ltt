@@ -10,3 +10,8 @@ coverage/
 !.env.example
 
 .DS_Store
+
+# TypeScript compiled output
+*.js.map
+*.d.ts.map
+*.tsbuildinfo
