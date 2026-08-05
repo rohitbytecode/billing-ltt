@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="login-wrapper">
     <div class="brand">
       <div class="logo">
@@ -66,10 +66,11 @@
 }
 h1 {
   margin: 0 0 8px;
-  font-size: 28px;
-  font-weight: 700;
-  color: #f8fafc;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
   letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 .subtitle {
   margin: 0;
@@ -80,11 +81,50 @@ h1 {
 .login-card {
   padding: 32px;
   border-radius: 18px;
-  background: rgba(17, 22, 32, 0.85);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   box-sizing: border-box;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.15)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.login-card:hover {
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .field {
@@ -156,25 +196,70 @@ h1 {
   text-decoration: underline;
 }
 
+/* Button */
 button {
   width: 100%;
   height: 46px;
   border: none;
   border-radius: 10px;
-  background: #eab308;
+  background: linear-gradient(135deg, #fde047 0%, #eab308 50%, #ca8a04 100%);
   color: #1c1400;
   font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 -2px 4px rgba(0, 0, 0, 0.15) inset,
+    0 8px 20px rgba(234, 179, 8, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.15);
   transition:
-    background 0.15s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
     transform 0.1s ease;
 }
-button:hover {
-  background: #facc15;
+
+button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
 }
+
+button:hover {
+  background: linear-gradient(135deg, #fef08a 0%, #facc15 50%, #eab308 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 -2px 4px rgba(0, 0, 0, 0.15) inset,
+    0 10px 26px rgba(234, 179, 8, 0.5),
+    0 3px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+button:hover::before {
+  transform: translateX(100%);
+}
+
 button:active {
-  transform: scale(0.98);
+  transform: scale(0.98) translateY(0);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 -1px 2px rgba(0, 0, 0, 0.2) inset,
+    0 4px 10px rgba(234, 179, 8, 0.3);
+}
+
+button:focus-visible {
+  outline: 2px solid #fde047;
+  outline-offset: 2px;
 }
 </style>

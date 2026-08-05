@@ -16,6 +16,7 @@ import bg from '@/assets/login-bg.jpg';
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   padding: 48px 20px;
   box-sizing: border-box;
   background-size: cover;
