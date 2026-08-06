@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import { LoginPage } from '../pages/auth/index.js';
+import { LoginPage } from '../pages/auth';
+import { DashboardPage } from '../pages/dashboard';
 
 const router = createRouter({
   history: createWebHistory(),
+
   routes: [
     {
       path: '/',
@@ -13,6 +15,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginPage,
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: DashboardPage,
     },
   ],
 });
